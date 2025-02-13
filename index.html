@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sumerta Convert - Konversi YouTube ke MP3</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            font-size: 36px;
+            color: #4CAF50;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 80%;
+            padding: 12px;
+            margin: 10px 0;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        button {
+            width: 80%;
+            padding: 12px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        footer a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+    </style>
+    <script>
+        function convertToMP3() {
+            // Ambil URL dari input
+            const youtubeUrl = document.getElementById('videoUrl').value;
+
+            // Validasi agar URL tidak kosong
+            if (youtubeUrl) {
+                // Ambil ID video dari URL YouTube
+                const videoId = youtubeUrl.split('https://youtu.be/')[1] || youtubeUrl.split('youtu.be/')[1];
+
+                if (videoId) {
+                    // Buat URL Y2Mate berdasarkan ID video
+                    const y2mateUrl = `https://www.y2mate.com/youtube/${videoId}`;
+                    
+                    // Arahkan ke Y2Mate untuk konversi
+                    window.location.href = y2mateUrl;
+                } else {
+                    alert("URL YouTube tidak valid.");
+                }
+            } else {
+                alert("Masukkan URL YouTube.");
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Sumerta Convert</h1>
+        <p>Konversi video YouTube ke MP3 hanya dalam beberapa langkah mudah!</p>
+
+        <!-- Form input untuk URL YouTube -->
+        <input type="text" id="videoUrl" placeholder="Masukkan URL YouTube di sini">
+
+        <!-- Tombol untuk mengonversi -->
+        <button onclick="convertToMP3()">Konversi</button>
+
+        <footer>
+            <p>© 2025 Sumerta Convert | <a href="#">Privacy Policy</a></p>
+        </footer>
+    </div>
+
+</body>
+</html>
